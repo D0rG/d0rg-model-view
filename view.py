@@ -17,11 +17,11 @@ async def view(model: int):
 
 @app.get('/model/{model}')
 async def get_model(model: int):
-    model_name = '\models'
+    model_name = ''
     if model == 1:
-        model_name += '\model'
-    else:
-        model_name += '\model2'
+        model_name += 'test'
+    elif model == 2:
+        model_name += 'model2'
 
-    model_name += '.gltf'
-    return FileResponse(model_name)
+    model_name += '.glb'
+    return FileResponse('models/' + model_name, filename=model_name ,media_type='application/octet-stream')
