@@ -22,7 +22,7 @@ async def get_model(model: int):
     if model == 1:
         model_name += 'test.glb'
     elif model == 2:
-        model_name += 'test.usdz'
+        model_name += 'ave.usdz'
 
     return FileResponse('models/' + model_name, filename=model_name ,media_type='application/octet-stream')
 
