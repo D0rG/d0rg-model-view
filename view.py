@@ -1,3 +1,4 @@
+from fileinput import filename
 from fastapi import FastAPI
 from fastapi.responses import HTMLResponse, FileResponse
 
@@ -24,3 +25,7 @@ async def get_model(model: int):
         model_name += 'test.usdz'
 
     return FileResponse('models/' + model_name, filename=model_name ,media_type='application/octet-stream')
+
+@app.get('/storage/{filename}')
+async def view(filename: str):
+    return FileResponse(filename, filename=filename ,media_type='application/octet-stream')
