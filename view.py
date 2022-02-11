@@ -6,7 +6,7 @@ from fastapi.responses import HTMLResponse, FileResponse
 app = FastAPI()
 @app.get('/')
 async def view(model: int):
-    page_name = 'view' + model + '.html'
+    page_name = 'view' + str(model) + '.html'
     with open(page_name, 'r') as file:
         return HTMLResponse(file.read())
 
