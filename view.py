@@ -19,9 +19,8 @@ async def view(model: int):
 async def get_model(model: int):
     model_name = ''
     if model == 1:
-        model_name += 'test'
+        model_name += 'test.glb'
     elif model == 2:
-        model_name += 'model2'
+        model_name += 'test.usdz'
 
-    model_name += '.glb'
     return FileResponse('models/' + model_name, filename=model_name ,media_type='application/octet-stream')
