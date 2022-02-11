@@ -2,29 +2,19 @@ from fileinput import filename
 from fastapi import FastAPI
 from fastapi.responses import HTMLResponse, FileResponse
 
+
 app = FastAPI()
 @app.get('/')
 async def view(model: int):
-    model_name = ''
-
-    if model == 1:
-        model_name = 'view1.html'
-    else:
-        model_name = 'view2.html'
-
-    with open(model_name, 'r') as file:
+    page_name = 'view' + model + '.html'
+    with open(page_name, 'r') as file:
         return HTMLResponse(file.read())
 
 
-@app.get('/model/{model}')
-async def get_model(model: int):
-    model_name = ''
-    if model == 1:
-        model_name += 'test.glb'
-    elif model == 2:
-        model_name += 'ave.usdz'
-
+@app.get('/model/{model_name}')
+async def get_model(model_name: str):
     return FileResponse('models/' + model_name, filename=model_name ,media_type='application/octet-stream')
+
 
 @app.get('/storage/{filename}')
 async def view(filename: str):
