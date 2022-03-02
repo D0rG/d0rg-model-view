@@ -1,2 +1,20 @@
-<a href="intent://arvr.google.com/scene-viewer/1.0?file=https://d0rg-model-view.herokuapp.com/model/test.glb#Intent;scheme=https;package=com.google.android.googlequicksearchbox;action=android.intent.action.VIEW;S.browser_fallback_url=https://developers.google.com/ar;end;">colt.glb</a>
-<a href="intent://arvr.google.com/scene-viewer/1.0?file=https://d0rg-model-view.herokuapp.com/model/test.usdz#Intent;scheme=https;package=com.google.android.googlequicksearchbox;action=android.intent.action.VIEW;S.browser_fallback_url=https://developers.google.com/ar;end;">colt.usdz</a>
+<html lang="en">
+  <head> 
+    <link rel="stylesheet" href="https://d0rg-model-view.herokuapp.com/storage/style.css">
+  </head> 
+<body>
+    <div id="card">
+      <model-viewer src="https://d0rg-model-view.herokuapp.com/model/colt.glb" 
+                    ios-src="https://d0rg-model-view.herokuapp.com/model/colt.usdz"
+                    alt="colt"
+                    shadow-intensity="1"
+                    camera-controls
+                    auto-rotate ar>
+      </model-viewer>
+    </div>
+
+    <script type="module"
+        src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js">
+    </script>
+  </body>
+</html>
